@@ -32,6 +32,43 @@ nav ul li button svg {
   stroke: #7C6A0A;
 }
 
+article {
+  width: auto;
+  color: #7C6A0A;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-around;
+}
+article .impact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 50px;
+}
+article .impact-section h1 {
+  font-size: 3em;
+  padding: 0;
+  margin: 0;
+}
+article .impact-section p {
+  font-size: 1.5em;
+}
+article .impact-section button {
+  width: 12vw;
+  padding: 20px;
+  background-color: #FA9500;
+  border: none;
+  color: white;
+  border-radius: 35px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+article img {
+  width: 25vw;
+  border-radius: 19px;
+}
+
 footer {
   background-color: #FA9500;
   width: 100%;
