@@ -202,9 +202,33 @@ section {
         }
     }
 }
+.location {
+    $text-color: #E86424;
+    color: $text-color;
+    h2 {
+        padding: $padding-botton 0;
+    }
+    .map {
+        @include flexCenter(row, center, center);
+        padding-bottom: $padding-botton;
+        iframe {
+            width: 80vw;
+        }
+    }
+    h3, p {
+        font-size: $paragraph-size;
+    }
+}
 
 footer {
-    background-color: $quaternion-color;
-    width: 100%;
-    height: 250px;
+    background-color: $quaternary-color;
+    width: auto;
+    height: auto;
+    color: white;
+    padding: 40px;
+    .social-media {
+        @include flexCenter(row, center, center);
+        gap: 40px;
+        padding-bottom: 40px;
+    }
 }
