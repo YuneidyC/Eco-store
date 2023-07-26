@@ -2,10 +2,25 @@ $primary-color: #FFEFE7;
 $secondary-color: #FFDAC6;
 $tertiary-color: #BABD8D;
 $primary-text-color: #7C6A0A;
-$quaternion-color: #FA9500;
-$font-stack: 'IBM Plex Sans',
-sans-serif;
+$quaternary-color: #FA9500;
+$font-stack: 'IBM Plex Sans', sans-serif;
 $paragraph-size: 1.5em;
+$padding-botton: 60px;
+
+@mixin flexCenter($direction, $content, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+
+@mixin buttonStyle {
+    button {
+        background: none;
+        border-style: none;
+        cursor: pointer;
+    }
+}
 
 body {
     margin: 0;
@@ -16,8 +31,7 @@ body {
 
 nav {
     width: auto;
-    display: flex;
-    justify-content: space-between;
+    @include flexCenter(row, space-between, center);
     padding: 15px;
     p {
         font-size: $paragraph-size;
@@ -25,17 +39,13 @@ nav {
         color: $primary-text-color;
     }
     ul {
-        display: flex;
+        @include flexCenter(row, space-between, flex-end);
         gap: 15px;
         li {
             list-style: none;
-            button {
-                background: none;
-                border-style: none;
-                cursor: pointer;
-                svg {
-                    stroke: $primary-text-color;
-                }
+            @include buttonStyle;
+            svg {
+                stroke: $primary-text-color;
             }
         }
     }
@@ -44,12 +54,10 @@ nav {
 article {
     width: auto;
     color: $primary-text-color;
-    padding: 0 30px;
-    display: flex;
-    justify-content: space-around;
+    padding: 70px 30px 0;
+    @include flexCenter(row, space-around, center);
     .impact-section {
-        display: flex;
-        flex-direction: column;
+        @include flexCenter(column, space-around, flex-start);
         gap: 25px;
         padding-top: 50px;
         h1 {
@@ -60,16 +68,19 @@ article {
         p {
             font-size: $paragraph-size;
         }
+        @include buttonStyle;
         button {
             width: 12vw;
             padding: 20px;
-            background-color: $quaternion-color;
-            border: none;
+            background-color: $quaternary-color;
             color: white;
             border-radius: 35px;
             font-size: 1em;
             font-weight: bold;
             cursor: pointer;
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
     img {
@@ -78,6 +89,119 @@ article {
     }
 }
 
+section {
+    width: auto;
+    height: auto;
+    padding: 60px;
+    h2 {
+        color: $primary-text-color;
+        font-size: 2em;
+    }
+    .healthcare {
+        padding-bottom: $padding-botton;
+        h2 {
+            font-weight: 300;
+            padding-bottom: $padding-botton;
+        }
+        .card-section {
+            @include flexCenter(row, center, center);
+            width: auto;
+            height: auto;
+            flex-wrap: wrap;
+            column-gap: 200px;
+            row-gap: 80px;
+        }
+        .product-card {
+            width: 14vw;
+            height: 45vh;
+            background-color: $secondary-color;
+            color: $primary-text-color;
+            padding: 20px;
+            border-radius: 8px;
+            .like {
+                width: 100%;
+                @include flexCenter(row, flex-end, center);
+                padding-bottom: 12px;
+                svg {
+                    stroke: $primary-text-color;
+                }
+                cursor: pointer;
+            }
+            .product-image {
+                width: 100%;
+                height: auto;
+                @include flexCenter(row, center, center);
+                img {
+                    width: 12vw;
+                    height: 30vh;
+                    object-fit: cover;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+    .furniture {
+        @extend .healthcare;
+        .product-card {
+            background-color: $tertiary-color;
+            color: white;
+            .like {
+                svg {
+                    stroke: white;
+                }
+            }
+        }
+    }
+}
+
+.about-us {
+    padding-bottom: $padding-botton;
+    h2 {
+        font-weight: bold;
+        padding-bottom: $padding-botton;
+    }
+    .mission-section {
+        @include flexCenter(row, space-evenly, center);
+        .earth {
+            $text-color: #E86424;
+            width: 30vw;
+            display: flex;
+            gap: 40px;
+            color: $text-color;
+            img {
+                object-fit: contain;
+            }
+            p {
+                text-align: center;
+                font-size: $paragraph-size;
+            }
+        }
+    }
+    .innovation {
+        @extend .earth;
+    }
+
+}
+
+.gallery {
+    h2 {
+        font-weight: bold;
+        padding-bottom: $padding-botton;
+    }
+    .gallery-images {
+        @include flexCenter(row, space-between, center);
+        img {
+            width: 28vw;
+            height: 45vh;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 16px;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
 
 footer {
     background-color: $quaternion-color;
