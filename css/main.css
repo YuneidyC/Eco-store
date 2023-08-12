@@ -38,9 +38,10 @@ nav ul li svg {
 }
 
 article {
-  width: auto;
+  width: 90%;
   color: #7C6A0A;
   padding: 70px 30px 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -60,6 +61,7 @@ article .impact-section h1 {
   margin: 0;
 }
 article .impact-section p {
+  width: 90%;
   font-size: 1.5em;
 }
 article .impact-section button {
@@ -68,7 +70,7 @@ article .impact-section button {
   cursor: pointer;
 }
 article .impact-section button {
-  width: 12vw;
+  width: 161px;
   padding: 20px;
   background-color: #FA9500;
   color: white;
@@ -86,9 +88,9 @@ article img {
 }
 
 section {
-  width: auto;
+  width: 90%;
   height: auto;
-  padding: 60px;
+  margin: 0 auto;
 }
 section h2 {
   color: #7C6A0A;
@@ -114,8 +116,8 @@ section .healthcare .card-section, section .furniture .card-section {
   row-gap: 80px;
 }
 section .healthcare .product-card, section .furniture .product-card {
-  width: 14vw;
-  height: 45vh;
+  width: 290px;
+  height: 476px;
   background-color: #FFDAC6;
   color: #7C6A0A;
   padding: 20px;
@@ -142,8 +144,8 @@ section .healthcare .product-card .product-image, section .furniture .product-ca
   align-items: center;
 }
 section .healthcare .product-card .product-image img, section .furniture .product-card .product-image img {
-  width: 12vw;
-  height: 30vh;
+  width: 80%;
+  height: 280px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 6px;
@@ -183,6 +185,10 @@ section .furniture .product-card .like svg {
   text-align: center;
   font-size: 1.5em;
 }
+.gallery {
+  width: 100%;
+  margin: 0 auto;
+}
 .gallery h2 {
   font-weight: bold;
   padding-bottom: 60px;
@@ -192,18 +198,22 @@ section .furniture .product-card .like svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
-.gallery .gallery-images img {
-  width: 28vw;
-  height: 45vh;
+.gallery .gallery-images .carousel {
+  width: 30%;
+  height: 464px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 5px 35%;
-     object-position: 5px 35%;
   border-radius: 16px;
+  cursor: pointer;
+  background-size: cover;
 }
-.gallery .gallery-images img:hover {
+.gallery .gallery-images .carousel:hover {
   transform: scale(1.1);
+}
+.gallery .gallery-images button {
+  display: none;
 }
 
 .location {
@@ -240,4 +250,93 @@ footer .social-media {
   align-items: center;
   gap: 40px;
   padding-bottom: 40px;
+}
+
+@media (max-width: 1052px) {
+  article {
+    flex-direction: column-reverse;
+  }
+  article .impact-section {
+    width: 70%;
+  }
+  article .image-section {
+    width: 413px;
+    height: 496px;
+  }
+  article .image-section img {
+    width: 100%;
+    height: 100%;
+  }
+  .about-us .mission-section {
+    flex-direction: column;
+  }
+  .about-us .mission-section .earth, .about-us .mission-section .innovation {
+    width: 440px;
+    height: 240px;
+  }
+  .about-us .mission-section .earth img, .about-us .mission-section .innovation img {
+    width: 164px;
+    height: 240px;
+  }
+  .gallery .gallery-images {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  .gallery .gallery-images .carousel {
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-size: cover;
+    border-radius: 10px;
+  }
+  .gallery .gallery-images .carousel:nth-child(3), .gallery .gallery-images .carousel:nth-child(4) {
+    display: none;
+  }
+  .gallery button {
+    height: 10%;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 1em;
+    display: flex;
+    border-radius: 50%;
+  }
+  .gallery button .arrow {
+    border: solid #fff;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.3s ease-out;
+    outline: none;
+  }
+  .gallery #right-btn {
+    display: block;
+    position: absolute;
+    width: 49px;
+    height: 50px;
+    top: 50%;
+    right: -30px;
+  }
+  .gallery #right-btn .arrow {
+    transform: rotate(-45deg);
+  }
+  .gallery #left-btn {
+    display: block;
+    z-index: 0;
+    position: absolute;
+    width: 49px;
+    height: 50px;
+    top: 50%;
+    left: -30px;
+  }
+  .gallery #left-btn .arrow {
+    transform: rotate(135deg);
+  }
 }/*# sourceMappingURL=main.css.map */

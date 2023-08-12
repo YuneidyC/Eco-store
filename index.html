@@ -64,7 +64,7 @@
         <section class="product-section">
             <div class="healthcare">
                 <h2>Health care</h2>
-                <div class="card-section">
+                <div class="card-section" id="healthcare-carousel">
                     <div class="product-card">
                         <div class="like">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -165,7 +165,7 @@
 
             <div class="furniture">
                 <h2>Home</h2>
-                <div class="card-section">
+                <div class="card-section" id="furniture-carousel">
                     <div class="product-card">
                         <div class="like">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -332,11 +332,16 @@
             </div>
             <div class="gallery">
                 <h2>Gallery</h2>
-                <div class="gallery-images">
-                    <img src="./assets/img/gallery-1.jpg" alt="Bedroom decoration">
-                    <img src="./assets/img/gallery-2.jpg" alt="Kitchen decoration">
-                    <img src="./assets/img/gallery-3.jpg" alt="Bathroom decoration">
-                </div>
+            <div class="container gallery-images" id="container">
+                <button id="left-btn">
+                    <i class="arrow"></i>
+                </button>
+                <img class="carousel" src="" alt="">
+                <img class="carousel" src="" alt="">
+                <img class="carousel" src="" alt="">
+                <button id="right-btn">
+                    <i class="arrow"></i>
+                </button>
             </div>
             <div class="location">
                 <h2>Find us</h2>
@@ -363,6 +368,7 @@
             <img src="./assets/img/twitter-logo.png" alt="Twitter">
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 
 </html>
