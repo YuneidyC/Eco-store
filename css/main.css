@@ -78,13 +78,15 @@ article .impact-section button {
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0px 0px 4px -1px #4f4f4f;
 }
 article .impact-section button:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 article img {
   width: 25vw;
   border-radius: 19px;
+  box-shadow: 0px 0px 4px -1px #5a5a5a;
 }
 
 section {
@@ -114,6 +116,11 @@ section .healthcare .card-section, section .furniture .card-section {
   -moz-column-gap: 200px;
        column-gap: 200px;
   row-gap: 80px;
+  margin: 0 auto;
+  position: relative;
+}
+section .healthcare .card-section button, section .furniture .card-section button {
+  display: none;
 }
 section .healthcare .product-card, section .furniture .product-card {
   width: 290px;
@@ -122,6 +129,8 @@ section .healthcare .product-card, section .furniture .product-card {
   color: #7C6A0A;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0px 0px 4px -1px #696969;
+  display: block;
 }
 section .healthcare .product-card .like, section .furniture .product-card .like {
   width: 100%;
@@ -149,10 +158,16 @@ section .healthcare .product-card .product-image img, section .furniture .produc
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 6px;
+  box-shadow: 0px 0px 4px -1px #5a5a5a;
 }
 section .furniture .product-card {
   background-color: #BABD8D;
   color: white;
+  box-shadow: 0px 0px 4px -1px #2e2e2e;
+  display: block;
+}
+section .furniture .product-card button {
+  display: none;
 }
 section .furniture .product-card .like svg {
   stroke: white;
@@ -256,12 +271,16 @@ footer .social-media {
   article {
     flex-direction: column-reverse;
   }
-  article .impact-section {
-    width: 70%;
+  article .impact-section h1 {
+    font-size: 2.6em;
+  }
+  article .impact-section p {
+    font-size: 1.2em;
   }
   article .image-section {
-    width: 413px;
-    height: 496px;
+    width: 70%;
+    height: 70%;
+    max-width: 295px;
   }
   article .image-section img {
     width: 100%;
@@ -278,15 +297,55 @@ footer .social-media {
     width: 164px;
     height: 240px;
   }
+  .card-section {
+    position: relative;
+    max-width: 400px;
+  }
+  .card-section button {
+    height: 10%;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 1em;
+    display: flex;
+    border-radius: 50%;
+  }
+  .card-section button .arrow {
+    border: solid #fff;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.3s ease-out;
+    outline: none;
+  }
+  .card-section #right-btn-furniture,
+  .card-section #left-btn-furniture,
+  .card-section #right-btn-health,
+  .card-section #left-btn-health {
+    top: 46%;
+    right: 5px;
+  }
+  .card-section #left-btn-furniture,
+  .card-section #left-btn-health {
+    left: 5px;
+  }
+  .card-section .product-card:not(.block) {
+    display: none;
+  }
+  .card-section .product-card:has(.block) {
+    display: block;
+  }
   .gallery .gallery-images {
-    width: 400px;
+    width: 80%;
     height: 500px;
     display: flex;
     justify-content: center;
-    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 4px -1px #5a5a5a;
     position: relative;
     margin: 0 auto;
     border-radius: 10px;
+    max-width: 400px;
   }
   .gallery .gallery-images .carousel {
     width: 100%;
@@ -316,27 +375,36 @@ footer .social-media {
     transition: transform 0.3s ease-out;
     outline: none;
   }
-  .gallery #right-btn {
-    display: block;
-    position: absolute;
-    width: 49px;
-    height: 50px;
+  .gallery #right-btn,
+  .gallery #left-btn {
     top: 50%;
     right: -30px;
   }
-  .gallery #right-btn .arrow {
-    transform: rotate(-45deg);
-  }
   .gallery #left-btn {
+    left: -30px;
+  }
+  #right-btn-health,
+  #left-btn-health,
+  #right-btn-furniture,
+  #left-btn-furniture,
+  #right-btn,
+  #left-btn {
     display: block;
-    z-index: 0;
     position: absolute;
     width: 49px;
     height: 50px;
-    top: 50%;
-    left: -30px;
   }
-  .gallery #left-btn .arrow {
+  #right-btn-health .arrow,
+  #left-btn-health .arrow,
+  #right-btn-furniture .arrow,
+  #left-btn-furniture .arrow,
+  #right-btn .arrow,
+  #left-btn .arrow {
+    transform: rotate(-45deg);
+  }
+  #left-btn-health .arrow,
+  #left-btn-furniture .arrow,
+  #left-btn .arrow {
     transform: rotate(135deg);
   }
 }/*# sourceMappingURL=main.css.map */

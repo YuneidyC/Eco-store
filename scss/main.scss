@@ -22,6 +22,42 @@ $padding-botton: 60px;
     }
 }
 
+@mixin arrowRight {
+    transform: rotate(-45deg);
+}
+
+@mixin arrowLeft {
+    transform: rotate(135deg);
+}
+
+@mixin buttonCarouselStyle {
+    button {
+            height: 10%;
+            border: none;
+            outline: none;
+            background: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            padding: 1em;
+            display: flex;
+            border-radius: 50%;
+            .arrow {
+                border: solid #fff;
+                border-width: 0 4px 4px 0;
+                display: inline-block;
+                padding: 10px;
+                transition: transform 0.3s ease-out;
+                outline: none;
+            }
+    }
+}
+
+@mixin buttonPosition {
+    display: block;
+    position: absolute;
+    width: 49px;
+    height: 50px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -81,20 +117,21 @@ article {
             font-weight: bold;
             cursor: pointer;
             &:hover {
-                transform: scale(1.1);
+                transform: scale(1.02);
             }
+            box-shadow: 0px 0px 4px -1px #4f4f4f;
         }
     }
     img {
         width: 25vw;
         border-radius: 19px;
+        box-shadow: 0px 0px 4px -1px #5a5a5a;
     }
 }
 
 section {
     width: 90%;
     height: auto;
-    // padding: 60px;
     margin: 0 auto;
     h2 {
         color: $primary-text-color;
@@ -113,6 +150,11 @@ section {
             flex-wrap: wrap;
             column-gap: 200px;
             row-gap: 80px;
+            margin: 0 auto;
+            position: relative;
+            button {
+                display: none;
+            }
         }
         .product-card {
             width: 290px;
@@ -121,6 +163,10 @@ section {
             color: $primary-text-color;
             padding: 20px;
             border-radius: 8px;
+            box-shadow: 0px 0px 4px -1px #696969;
+
+                display: block;
+
             .like {
                 width: 100%;
                 @include flexCenter(row, flex-end, center);
@@ -139,6 +185,7 @@ section {
                     height: 280px;
                     object-fit: cover;
                     border-radius: 6px;
+                    box-shadow: 0px 0px 4px -1px #5a5a5a;
                 }
             }
         }
@@ -148,6 +195,11 @@ section {
         .product-card {
             background-color: $tertiary-color;
             color: white;
+            box-shadow: 0px 0px 4px -1px #2e2e2e;
+            display: block;
+            button {
+                display: none;
+            }
             .like {
                 svg {
                     stroke: white;
@@ -247,11 +299,17 @@ footer {
     article {
         flex-direction: column-reverse;
         .impact-section {
-            width: 70%;
+            h1 {
+                font-size: 2.6em;
+            }
+            p {
+                font-size: 1.2em;
+            }
         }
         .image-section {
-            width: 413px;
-            height: 496px;
+            width: 70%;
+            height: 70%;
+            max-width: 295px;
             img {
                 width: 100%;
                 height: 100%;
@@ -272,17 +330,40 @@ footer {
         }
     }
 
+    .card-section {
+        position: relative;
+        max-width: 400px;
+        @include buttonCarouselStyle;
+        #right-btn-furniture,
+        #left-btn-furniture,
+        #right-btn-health,
+        #left-btn-health {
+            top: 46%;
+            right: 5px;
+        }
+        #left-btn-furniture,
+        #left-btn-health {
+            left: 5px;
+        }
+        .product-card:not(.block) {
+            display: none;
+        }
+        .product-card:has(.block) {
+            display: block;
+        }
+    }
+
     .gallery {
         .gallery-images {
-            width: 400px;
+            width: 80%;
             height: 500px;
             display: flex;
             justify-content: center;
-            box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
-                0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 4px -1px #5a5a5a;
             position: relative;
             margin: 0 auto;
             border-radius: 10px;
+            max-width: 400px;
             .carousel {
                 width: 100%;
                 height: 100%;
@@ -294,57 +375,35 @@ footer {
                     display: none;
                 }
             }
-
         }
-        button {
-            height: 10%;
-            border: none;
-            outline: none;
-            background: rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            padding: 1em;
-            display: flex;
-            border-radius: 50%;
-            .arrow {
-                border: solid #fff;
-                border-width: 0 4px 4px 0;
-                display: inline-block;
-                padding: 10px;
-                transition: transform 0.3s ease-out;
-                outline: none;
-            }
-        }
-        #right-btn {
-            display: block;
-            position: absolute;
-            width: 49px;
-            height: 50px;
+        @include buttonCarouselStyle;
+        #right-btn,
+        #left-btn {
             top: 50%;
             right: -30px;
-            .arrow {
-                transform: rotate(-45deg);
-            }
         }
         #left-btn {
-            display: block;
-            z-index: 0;
-            position: absolute;
-            width: 49px;
-            height: 50px;
-            top: 50%;
             left: -30px;
-            .arrow {
-                transform: rotate(135deg);
-            }
         }
         $color_1: #fff;
     }
+
+    #right-btn-health,
+    #left-btn-health,
+    #right-btn-furniture,
+    #left-btn-furniture,
+    #right-btn,
+    #left-btn {
+        @include buttonPosition;
+        .arrow {
+            @include arrowRight;
+        }
+    }
+    #left-btn-health,
+    #left-btn-furniture,
+    #left-btn {
+        .arrow {
+            @include arrowLeft;
+        }
+    }
 }
-
-
-
-
-
-
-
-
