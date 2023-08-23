@@ -40,4 +40,4 @@ I have made these improvements on top of the Platzi courses' contents
 
 ## Test it out
 
-You can test this [here](https://yuneidyc.github.io/todo-app/).
+You can test this [here](https://yuneidyc.github.io/Eco-store/).
