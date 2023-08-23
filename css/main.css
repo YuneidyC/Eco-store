@@ -84,7 +84,8 @@ article .impact-section button:hover {
   transform: scale(1.02);
 }
 article img {
-  width: 25vw;
+  width: 455px;
+  height: 681px;
   border-radius: 19px;
   box-shadow: 0px 0px 4px -1px #5a5a5a;
 }
@@ -193,6 +194,8 @@ section .furniture .product-card .like svg {
   color: #E86424;
 }
 .about-us .mission-section .earth img, .about-us .mission-section .innovation img {
+  width: 164px;
+  height: 164px;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -265,6 +268,10 @@ footer .social-media {
   align-items: center;
   gap: 40px;
   padding-bottom: 40px;
+}
+footer .social-media img {
+  width: 44px;
+  height: 45px;
 }
 
 @media (max-width: 1052px) {

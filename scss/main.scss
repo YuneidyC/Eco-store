@@ -123,7 +123,8 @@ article {
         }
     }
     img {
-        width: 25vw;
+        width: 455px;
+        height: 681px;
         border-radius: 19px;
         box-shadow: 0px 0px 4px -1px #5a5a5a;
     }
@@ -164,9 +165,7 @@ section {
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 4px -1px #696969;
-
-                display: block;
-
+            display: block;
             .like {
                 width: 100%;
                 @include flexCenter(row, flex-end, center);
@@ -224,6 +223,8 @@ section {
             gap: 40px;
             color: $text-color;
             img {
+                width: 164px;
+                height: 164px;
                 object-fit: contain;
             }
             p {
@@ -292,6 +293,10 @@ footer {
         @include flexCenter(row, center, center);
         gap: 40px;
         padding-bottom: 40px;
+        img {
+            width: 44px;
+            height: 45px;
+        }
     }
 }
 
