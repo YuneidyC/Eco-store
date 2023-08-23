@@ -139,10 +139,10 @@ section .healthcare .product-card .like, section .furniture .product-card .like 
   justify-content: flex-end;
   align-items: center;
   padding-bottom: 12px;
-  cursor: pointer;
 }
 section .healthcare .product-card .like svg, section .furniture .product-card .like svg {
   stroke: #7C6A0A;
+  cursor: pointer;
 }
 section .healthcare .product-card .product-image, section .furniture .product-card .product-image {
   width: 100%;
