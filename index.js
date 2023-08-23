@@ -1,40 +1,24 @@
-const firstGalleryCarouselImg = document.getElementsByClassName('carousel')[0];
+import { FurnitureAndHealthCarousel } from './furnitureAndHealthCarousel.js';
+import { GalleryCarousel } from './galleryCarousel.js';
+
+const galleryCarouselImg = document.getElementsByClassName('carousel')[0];
 const rightBtn = document.getElementById('right-btn');
 const leftBtn = document.getElementById('left-btn');
 
-let position = 0;
-
-// Take images from HTML
-let pictures = [];
-let carouselItems = document.getElementsByClassName("carousel");
-
-for (const element of carouselItems) {
-    pictures.push(element.src);
-};
-
-const moveRight = () => {
-    position = sanitizeCarouselIndex(position + 1, 3);
-    changeGalleryCarouselImg(position);
-}
-
-const moveLeft = () => {
-    position = sanitizeCarouselIndex(position - 1, 3);
-    changeGalleryCarouselImg(position);
-}
-
-function changeGalleryCarouselImg(idx) {
-    firstGalleryCarouselImg.src = pictures[idx];
-}
-
-function sanitizeCarouselIndex(newPosition, carouselSize) {
-    return newPosition % carouselSize;
-}
+let galleryCarousel = new GalleryCarousel(galleryCarouselImg, 0, rightBtn, leftBtn, "carousel");
 
 const mql = window.matchMedia("(max-width: 1052px)");
 
 mql.onchange = () => {
-    changeGalleryCarouselImg(0);
+    galleryCarousel.changeGalleryCarouselImg(0);
 };
 
-rightBtn.addEventListener("click", moveRight);
-leftBtn.addEventListener("click", moveLeft);
+const furnitureCarouselFirstElement = document.getElementById('furniture-carousel');
+const rightBtnFurniture = document.getElementById('right-btn-furniture');
+const leftBtnFurniture = document.getElementById('left-btn-furniture');
+let furnitureCarousel = new FurnitureAndHealthCarousel(furnitureCarouselFirstElement.children[2], 0, rightBtnFurniture, leftBtnFurniture, furnitureCarouselFirstElement.childNodes);
+
+const healthCareCarousel = document.getElementById('healthcare-carousel');
+const rightBtnHealth = document.getElementById('right-btn-health');
+const leftBtnHealth = document.getElementById('left-btn-health');
+let healthCarousel = new FurnitureAndHealthCarousel(healthCareCarousel.children[2], 0, rightBtnHealth, leftBtnHealth, healthCareCarousel.childNodes);
