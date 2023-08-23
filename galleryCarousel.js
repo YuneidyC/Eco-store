@@ -11,14 +11,12 @@ export class GalleryCarousel extends Carousel {
 
     addItems() {
         // Take images from HTML
-        {
-            let carouselItems = document.getElementsByClassName(this.className);
+        let carouselItems = document.getElementsByClassName(this.className);
 
-            for (const element of carouselItems) {
-                this.items.push(element.src);
-                this.size++;
-            };
-        }
+        for (const element of carouselItems) {
+            this.items.push(element.src);
+            this.size++;
+        };
     }
 
     changeGalleryCarouselImg(idx) {
